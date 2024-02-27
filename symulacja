@@ -4,26 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Climate Zones Simulation</title>
-    <style>
-        .zone {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .animals {
-            margin-bottom: 10px;
-        }
-        .plants {
-            margin-bottom: 10px;
-        }
-        .weather {
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
-    <div class="zone">
+    <div class="zone" id="zone1">
         <h2>Climate Zone 1</h2>
         <div class="animals">
             <h3>Animals:</h3>
