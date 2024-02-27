@@ -27,36 +27,30 @@
         }
 
         #map {
-            width: 600px;
+            width: 2200px;
             height: auto;
+            position: relative;
+        }
+
+        .animal,
+        .plant {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
         }
 
         .animal {
-            position: absolute;
-            width: 20px;
-            height: 20px;
             background-color: brown;
-            border-radius: 50%;
         }
 
         .plant {
-            position: absolute;
-            width: 10px;
-            height: 10px;
             background-color: green;
-            border-radius: 50%;
         }
 
         .simulation-title {
             font-size: 24px;
             margin-top: 20px;
-        }
-
-        .signature {
-            font-size: 24px;
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
         }
     </style>
 </head>
@@ -65,19 +59,41 @@
         <div id="map">
             <!-- Tutaj znajdzie się mapa świata -->
             <img src="world_map.png" alt="World Map">
-            
-            <!-- Zwierzęta i rośliny -->
-            <div class="animal" style="top: 100px; left: 300px;"></div>
-            <div class="animal" style="top: 150px; left: 200px;"></div>
-            <div class="plant" style="top: 200px; left: 400px;"></div>
-            <div class="plant" style="top: 250px; left: 500px;"></div>
         </div>
     </div>
 
     <div class="simulation-title">Climate Simulation</div>
 
-    <div class="signature">
-        <span>🌞</span> <span>🌧️</span> <span>🌬️</span> <span>🐾</span> <span>🌿</span>
-    </div>
+    <script>
+        // Funkcja generująca losową liczbę z przedziału [min, max]
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Liczba roślin i zwierząt do wygenerowania
+        const numberOfPlants = 100;
+        const numberOfAnimals = 100;
+
+        // Pobierz mapę
+        const map = document.getElementById('map');
+
+        // Generuj rośliny
+        for (let i = 0; i < numberOfPlants; i++) {
+            const plant = document.createElement('div');
+            plant.className = 'plant';
+            plant.style.top = randomInRange(0, map.clientHeight) + 'px';
+            plant.style.left = randomInRange(0, map.clientWidth) + 'px';
+            map.appendChild(plant);
+        }
+
+        // Generuj zwierzęta
+        for (let i = 0; i < numberOfAnimals; i++) {
+            const animal = document.createElement('div');
+            animal.className = 'animal';
+            animal.style.top = randomInRange(0, map.clientHeight) + 'px';
+            animal.style.left = randomInRange(0, map.clientWidth) + 'px';
+            map.appendChild(animal);
+        }
+    </script>
 </body>
 </html>
