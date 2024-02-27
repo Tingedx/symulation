@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Climate Zones</title>
+    <title>Climate Simulation</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -11,30 +11,46 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #map-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
         #map {
-            width: 1000px;
-            margin: 0 auto;
-            display: block;
+            width: 600px;
+            height: auto;
         }
 
-        .zone {
+        .animal {
             position: absolute;
-            font-size: 14px;
-            padding: 5px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1;
+            width: 20px;
+            height: 20px;
+            background-color: brown;
+            border-radius: 50%;
         }
 
-        .zone1 { top: 100px; left: 300px; }
-        .zone2 { top: 200px; left: 400px; }
-        .zone3 { top: 300px; left: 500px; }
-        .zone4 { top: 400px; left: 600px; }
-        .zone5 { top: 500px; left: 700px; }
+        .plant {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+        }
+
+        .simulation-title {
+            font-size: 24px;
+            margin-top: 20px;
+        }
 
         .signature {
             font-size: 24px;
@@ -45,41 +61,20 @@
     </style>
 </head>
 <body>
-    <div id="map">
-        <!-- Tutaj znajdzie się mapa świata -->
-        <img src="world_map.png" alt="World Map">
-        <!-- Każda strefa klimatyczna będzie oznaczona przez div o klasie 'zone' -->
-        <div class="zone zone1">
-            <h3>Climate Zone 1</h3>
-            <p>Animals: Lion, Elephant</p>
-            <p>Plants: Baobab tree, Acacia shrub</p>
-            <p>Weather: Temperature: 30°C, Humidity: 80%, Precipitation: Low, Wind: Gentle</p>
-        </div>
-        <div class="zone zone2">
-            <h3>Climate Zone 2</h3>
-            <p>Animals: Kangaroo, Wombat</p>
-            <p>Plants: Eucalyptus, Acacia</p>
-            <p>Weather: Temperature: 25°C, Humidity: 70%, Precipitation: Medium, Wind: Moderate</p>
-        </div>
-        <div class="zone zone3">
-            <h3>Climate Zone 3</h3>
-            <p>Animals: Bear, Lynx</p>
-            <p>Plants: Pine, Birch</p>
-            <p>Weather: Temperature: 15°C, Humidity: 60%, Precipitation: High, Wind: Strong</p>
-        </div>
-        <div class="zone zone4">
-            <h3>Climate Zone 4</h3>
-            <p>Animals: Jaguar, Toucan</p>
-            <p>Plants: Rainforest, Rubber tree</p>
-            <p>Weather: Temperature: 25°C, Humidity: 90%, Precipitation: Very high, Wind: Very strong</p>
-        </div>
-        <div class="zone zone5">
-            <h3>Climate Zone 5</h3>
-            <p>Animals: Eagle, Lynx</p>
-            <p>Plants: Tundra, Mosses and lichens</p>
-            <p>Weather: Temperature: 0°C, Humidity: 50%, Precipitation: Low, Wind: Windy</p>
+    <div id="map-container">
+        <div id="map">
+            <!-- Tutaj znajdzie się mapa świata -->
+            <img src="world_map.png" alt="World Map">
+            
+            <!-- Zwierzęta i rośliny -->
+            <div class="animal" style="top: 100px; left: 300px;"></div>
+            <div class="animal" style="top: 150px; left: 200px;"></div>
+            <div class="plant" style="top: 200px; left: 400px;"></div>
+            <div class="plant" style="top: 250px; left: 500px;"></div>
         </div>
     </div>
+
+    <div class="simulation-title">Climate Simulation</div>
 
     <div class="signature">
         <span>🌞</span> <span>🌧️</span> <span>🌬️</span> <span>🐾</span> <span>🌿</span>
